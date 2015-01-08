@@ -22,11 +22,14 @@ class AndroidAppsSpider(Spider):
         super(AndroidAppsSpider, self).__init__(*args, **kwargs)
         self.allowed_domains = settings.ALLOWED_DOMAINS[market]
         self.start_urls = settings.START_URLS[market]
+        print self.start_urls
         settings.MARKET_NAME = market
         settings.DATABASE_DIR = database_dir
 
     def parse(self, response):
+        #print ("visited %s" % response.url)
         response_domain = urlparse(response.url).netloc
+        #print ("visited %s" % response_domain)
         appItemList = []
         cookie = {}
         xpath_rule = self.scrape_rules['xpath']
@@ -58,6 +61,7 @@ class AndroidAppsSpider(Spider):
         sel = Selector(response)
         for url in sel.xpath('//a/@href').extract():
             url = urljoin(response.url, url)
+            #print "debug: " + url  
             yield Request(url, meta=cookie, callback=self.parse)
 
         for item in appItemList:

@@ -15,7 +15,7 @@ ITEM_PIPELINES = {
     'android_apps_crawler.pipelines.AppPipeline': 1,
     'android_apps_crawler.pipelines.SQLitePipeline': 2,
 }
-LOG_LEVEL = 'INFO'
+LOG_LEVEL = 'DEBUG'
 DOWNLOADER_MIDDLEWARES = {
     'android_apps_crawler.middlewares.DownloaderMiddleware': 1,
 }
@@ -29,7 +29,7 @@ ALLOWED_DOMAINS = {
     "appchina.com" : ["appchina.com",],
     "hiapk.com"    : ["hiapk.com",],
     "anzhi.com"    : ["anzhi.com",],
-    "android.d.cn" : ["android.d.cn",],
+    #"android.d.cn" : ["android.d.cn",],
     "mumayi.com"   : ["mumayi.com",],
     "gfan.com"     : ["apk.gfan.com",],
     "nduoa.com"    : ["nduoa.com",],
@@ -45,7 +45,7 @@ START_URLS = {
     "appchina.com" : ["http://www.appchina.com",],
     "hiapk.com"    : ["http://apk.hiapk.com",],
     "anzhi.com"    : ["http://www.anzhi.com",],
-    "android.d.cn" : ["http://android.d.cn",],
+    #"android.d.cn" : ["http://android.d.cn",],
     "mumayi.com"   : ["http://www.mumayi.com",],
     "gfan.com"     : ["http://apk.gfan.com",],
     "nduoa.com"    : ["http://www.nduoa.com",],
@@ -61,7 +61,7 @@ SCRAPE_RULES = {
     "xpath" : {
         "appchina"     : "//a[@class='download-pc fl']/@href",
         "hiapk"        : "//a[@class='linkbtn d1']/@href",
-        "android.d.cn" : "//a[@class='localDownload']/@href",
+        #"android.d.cn" : "//a[@class='localDownload']/@href",
         "mumayi"       : "//a[@class='download fl']/@href",
         "gfan"         : "//a[@id='computerLoad']/@href",
         "nduoa"        : "//a[@class='d_pc_normal']/@href",
